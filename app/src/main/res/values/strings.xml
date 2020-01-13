@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">CustomSearchViewSample</string>
+    <string name="app_name">Assignment</string>
+    <string name="str_countries">Countries</string>
+    <string name="str_edit">Edit</string>
+    <string name="str_ok">Ok</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_enter_your_text">Enter your text</string>
 </resources>
