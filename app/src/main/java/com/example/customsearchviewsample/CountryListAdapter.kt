@@ -105,7 +105,7 @@ class CountryListAdapter(var mContext: Context, countryList: ArrayList<Country>,
             }else if(this.viewType == 1){
                 view.textCountryName.text = country.name
                 view.btnEdit.setOnClickListener {
-                    showAddDialog(mContext,country.id,onEditClickedListener)
+                    showAddDialog(mContext,country.id,country.name,onEditClickedListener)
                 }
             }else if(this.viewType == 2){
                 view.textCountryName.text = country.name
@@ -114,7 +114,7 @@ class CountryListAdapter(var mContext: Context, countryList: ArrayList<Country>,
 
         }
 
-        fun showAddDialog(context: Context,id: Int,onEditClickedListener: OnEditClickedListener){
+        fun showAddDialog(context: Context,id: Int,text: String,onEditClickedListener: OnEditClickedListener){
             val dialog = Dialog(context)
             dialog.requestWindowFeature(FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.layout_edit_dialog)
@@ -125,6 +125,7 @@ class CountryListAdapter(var mContext: Context, countryList: ArrayList<Country>,
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
             dialog.window?.attributes = lp
             dialog.show()
+            dialog.editText.append(text)
             dialog.btnAddEdit.text = context.getString(R.string.str_edit)
             dialog.btnAddEdit.setOnClickListener(object : View.OnClickListener{
                 override fun onClick(p0: View?) {

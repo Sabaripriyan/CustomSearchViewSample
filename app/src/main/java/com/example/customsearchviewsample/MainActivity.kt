@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity(),OnEditClickedListener{
         dialog.btnAddEdit.text = this.getString(R.string.str_add)
         dialog.btnAddEdit.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
+                searchView.onActionViewCollapsed()
                 id++
                 countryList.add(Country("",dialog.editText.text.toString(),true,id))
                 countryListAdapter.updateList(countryList)
