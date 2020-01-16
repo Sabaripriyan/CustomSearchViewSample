@@ -6,13 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.example.customsearchviewsample.custom_views.CustomSearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:queryHint="@string/str_search_here"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:background="@drawable/white_bg_with_orange_stroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCountryList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
     <TextView
+        android:id="@+id/textNoResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/str_no_results"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rvCountryList"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

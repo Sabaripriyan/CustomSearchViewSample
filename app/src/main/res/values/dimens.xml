@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
     <dimen name="single_line_item_padding">16dp</dimen>
     <dimen name="recycler_item_margin_top">8dp</dimen>
     <dimen name="recycler_item_margin_bottom">8dp</dimen>
@@ -9,4 +10,10 @@
     <dimen name="picture_h">56dp</dimen>
     <dimen name="picture_w">100dp</dimen>
     <dimen name="picture_right_margin">16dp</dimen>
+    <dimen name="recycler_view_vertical_margin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="edit_text_padding">8dp</dimen>
+    <dimen name="dialog_padding_bottom">20dp</dimen>
+    <dimen name="dialog_edit_text_height">70dp</dimen>
+    <dimen name="recycler_card_elevation">4dp</dimen>
 </resources>

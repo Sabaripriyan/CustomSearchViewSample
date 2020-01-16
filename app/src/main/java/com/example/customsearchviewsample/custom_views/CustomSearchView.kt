@@ -3,6 +3,7 @@ package com.example.customsearchviewsample.custom_views
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.functions.Consumer
@@ -15,16 +16,19 @@ import java.util.concurrent.TimeUnit.*
 class CustomSearchView(context: Context, attributeSet: AttributeSet): SearchView(context,attributeSet) {
 
     lateinit var subject: PublishSubject<String>
-    lateinit var onFinalQueryTextListener: OnFinalQueryTextListener
+     var onFinalQueryTextListener: OnFinalQueryTextListener? = null
 
     init {
         init()
     }
 
-    public interface OnFinalQueryTextListener{
+     interface OnFinalQueryTextListener{
 
         fun onFinalQueryTextChange(newText: String): Boolean
+        fun onQueryCleared()
     }
+
+
 
 
     private fun init(){
@@ -37,6 +41,7 @@ class CustomSearchView(context: Context, attributeSet: AttributeSet): SearchView
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 subject.onNext(newText!!)
+                onFinalQueryTextListener?.onQueryCleared()
                 return true
             }
 
@@ -46,7 +51,6 @@ class CustomSearchView(context: Context, attributeSet: AttributeSet): SearchView
             .filter(object : Predicate<String> {
                 override fun test(t: String): Boolean {
                     if(t.length == 0){
-
                         return false
                     }else{
                         return true
@@ -60,9 +64,9 @@ class CustomSearchView(context: Context, attributeSet: AttributeSet): SearchView
             .subscribe(object : Consumer<String> {
                 override fun accept(t: String?) {
                     Log.e("CustomSearchView",t)
-                    onFinalQueryTextListener.onFinalQueryTextChange(t!!)
+                    onFinalQueryTextListener?.onFinalQueryTextChange(t!!)
                 }
-
             })
+
     }
 }

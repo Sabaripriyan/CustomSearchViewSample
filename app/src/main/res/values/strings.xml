@@ -5,4 +5,7 @@
     <string name="str_ok">Ok</string>
     <string name="str_cancel">Cancel</string>
     <string name="str_enter_your_text">Enter your text</string>
+    <string name="str_no_results">No Results</string>
+    <string name="str_add">Add</string>
+    <string name="str_search_here">Search here</string>
 </resources>
