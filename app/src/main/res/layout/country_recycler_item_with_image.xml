@@ -5,17 +5,17 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="@dimen/recycler_item_margin_top"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="@dimen/recycler_item_margin_bottom"
     android:layout_marginLeft="@dimen/horizontal_margin"
     android:layout_marginRight="@dimen/horizontal_margin"
-    app:cardElevation="4dp">
+    app:cardElevation="@dimen/recycler_card_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/picture_item_v_padding"
         android:paddingRight="@dimen/picture_item_h_padding"
-        android:paddingLeft="@dimen/picture_item_h_padding" android:paddingBottom="@dimen/picture_item_v_padding">
+        android:paddingLeft="@dimen/picture_item_v_padding" android:paddingBottom="@dimen/picture_item_v_padding">
 
         <TextView
             android:id="@+id/textCountryName"
@@ -33,7 +33,7 @@
             android:id="@+id/imageFlag"
             android:layout_width="@dimen/picture_w"
             android:layout_height="@dimen/picture_h"
-            android:scaleType="centerInside"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
